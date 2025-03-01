@@ -64,13 +64,7 @@ def flag():
     if "user" not in session:
         return redirect("/")
     
-    user_agent = request.headers.get("User-Agent", "")
-    
-    # Trick: Only show the flag if request is intercepted (e.g., Burp Suite)
-    if "BurpSuite" in user_agent or "Mozilla" not in user_agent:
-        return FLAG
-    
-    return "Not too easy lol !!!"
+    return FLAG
 
 if __name__ == "__main__":
     app.run(debug=True)
